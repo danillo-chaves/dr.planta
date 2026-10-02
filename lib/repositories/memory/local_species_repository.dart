@@ -1,0 +1,331 @@
+import '../../models/plant_species.dart';
+import '../species_repository.dart';
+
+/// Catálogo embutido no app. Informações gerais de cultivo.
+class LocalSpeciesRepository implements SpeciesRepository {
+  @override
+  Future<List<PlantSpecies>> getAll() async => _catalog;
+
+  static const _catalog = <PlantSpecies>[
+    PlantSpecies(
+      id: 'jiboia',
+      name: 'Jiboia',
+      scientificName: 'Epipremnum aureum',
+      emoji: '🌿',
+      description:
+          'Trepadeira resistente e muito fácil de cuidar. Ótima para quem está começando.',
+      light: LightLevel.medium,
+      wateringIntervalDays: 7,
+      fertilizingIntervalDays: 30,
+      petFriendly: false,
+      aliases: ['pothos', 'hera do diabo'],
+      dos: [
+        'Regar quando os primeiros 3 cm do solo estiverem secos',
+        'Deixar em luz indireta, perto de uma janela',
+        'Podear pontas para deixá-la mais cheia',
+      ],
+      donts: [
+        'Não deixar água acumulada no pratinho',
+        'Não expor ao sol forte direto (queima as folhas)',
+        'Não deixar ao alcance de pets: é tóxica',
+      ],
+    ),
+    PlantSpecies(
+      id: 'costela-de-adao',
+      name: 'Costela-de-adão',
+      scientificName: 'Monstera deliciosa',
+      emoji: '🍃',
+      description:
+          'Folhas grandes e recortadas que dão um ar tropical ao ambiente.',
+      light: LightLevel.medium,
+      wateringIntervalDays: 7,
+      fertilizingIntervalDays: 30,
+      petFriendly: false,
+      aliases: ['monstera'],
+      dos: [
+        'Limpar as folhas com pano úmido de vez em quando',
+        'Dar um tutor para ela crescer apoiada',
+        'Manter em luz clara e indireta',
+      ],
+      donts: [
+        'Não regar em excesso: o encharcamento apodrece as raízes',
+        'Não deixar em local escuro (não cria os recortes)',
+        'Não deixar ao alcance de pets: é tóxica',
+      ],
+    ),
+    PlantSpecies(
+      id: 'espada-de-sao-jorge',
+      name: 'Espada-de-são-jorge',
+      scientificName: 'Dracaena trifasciata',
+      emoji: '🗡️',
+      description:
+          'Super resistente, aguenta esquecimentos e pouca luz. Perfeita para apartamento.',
+      light: LightLevel.low,
+      wateringIntervalDays: 14,
+      fertilizingIntervalDays: 60,
+      petFriendly: false,
+      aliases: ['sansevieria', 'sanseviéria'],
+      dos: [
+        'Esperar o solo secar completamente entre as regas',
+        'Usar vaso com bom furo de drenagem',
+        'Tolerar cantos com pouca luz',
+      ],
+      donts: [
+        'Não regar com frequência (o excesso é o maior inimigo)',
+        'Não deixar água acumulada no centro das folhas',
+        'Não deixar ao alcance de pets: é tóxica',
+      ],
+    ),
+    PlantSpecies(
+      id: 'zamioculca',
+      name: 'Zamioculca',
+      scientificName: 'Zamioculcas zamiifolia',
+      emoji: '🪴',
+      description:
+          'Folhas brilhantes e muito resistente. Guarda água nos rizomas e perdoa esquecimentos.',
+      light: LightLevel.low,
+      wateringIntervalDays: 14,
+      fertilizingIntervalDays: 60,
+      petFriendly: false,
+      aliases: ['zz', 'zz plant'],
+      dos: [
+        'Regar pouco e só com o solo bem seco',
+        'Manter em luz indireta ou meia-sombra',
+        'Limpar as folhas para manter o brilho',
+      ],
+      donts: [
+        'Não regar toda semana',
+        'Não deixar em sol direto forte',
+        'Não deixar ao alcance de pets: é tóxica',
+      ],
+    ),
+    PlantSpecies(
+      id: 'lirio-da-paz',
+      name: 'Lírio-da-paz',
+      scientificName: 'Spathiphyllum wallisii',
+      emoji: '🤍',
+      description:
+          'Flores brancas elegantes. Avisa quando está com sede: as folhas ficam caídas.',
+      light: LightLevel.low,
+      wateringIntervalDays: 4,
+      fertilizingIntervalDays: 30,
+      petFriendly: false,
+      aliases: ['espatifilo', 'peace lily'],
+      dos: [
+        'Manter o solo levemente úmido',
+        'Borrifar as folhas em dias secos',
+        'Deixar em meia-sombra',
+      ],
+      donts: [
+        'Não deixar o solo ficar encharcado',
+        'Não deixar em sol direto',
+        'Não deixar ao alcance de pets: é tóxica',
+      ],
+    ),
+    PlantSpecies(
+      id: 'samambaia',
+      name: 'Samambaia',
+      scientificName: 'Nephrolepis exaltata',
+      emoji: '🌱',
+      description:
+          'Gosta de umidade e ambiente fresco. Segura para pets, segundo listas de plantas não tóxicas.',
+      light: LightLevel.medium,
+      wateringIntervalDays: 3,
+      fertilizingIntervalDays: 30,
+      petFriendly: true,
+      aliases: ['samambaia americana'],
+      dos: [
+        'Manter o solo sempre levemente úmido',
+        'Borrifar água nas folhas',
+        'Deixar em local fresco e arejado',
+      ],
+      donts: [
+        'Não deixar o solo secar por completo',
+        'Não expor ao sol direto nem ao vento seco',
+        'Não deixar perto de ar-condicionado',
+      ],
+    ),
+    PlantSpecies(
+      id: 'echeveria',
+      name: 'Suculenta Echeveria',
+      scientificName: 'Echeveria elegans',
+      emoji: '🪷',
+      description:
+          'Formato de rosa que guarda água nas folhas. Adora luz e rega espaçada.',
+      light: LightLevel.high,
+      wateringIntervalDays: 10,
+      fertilizingIntervalDays: 60,
+      petFriendly: true,
+      aliases: ['suculenta', 'rosa de pedra'],
+      dos: [
+        'Dar bastante luz, de preferência sol da manhã',
+        'Usar substrato bem drenante (areia/pedrisco)',
+        'Regar direto no solo, sem molhar a roseta',
+      ],
+      donts: [
+        'Não regar em excesso',
+        'Não deixar água parada nas folhas',
+        'Não manter em local escuro: ela estiola (estica)',
+      ],
+    ),
+    PlantSpecies(
+      id: 'cacto',
+      name: 'Cacto',
+      scientificName: 'Cactaceae',
+      emoji: '🌵',
+      description: 'Pede sol e pouquíssima água. Cuidado com os espinhos.',
+      light: LightLevel.high,
+      wateringIntervalDays: 14,
+      fertilizingIntervalDays: 90,
+      petFriendly: true,
+      aliases: ['cactus'],
+      dos: [
+        'Dar sol direto por várias horas',
+        'Regar só com o substrato totalmente seco',
+        'Usar vaso com drenagem excelente',
+      ],
+      donts: [
+        'Não regar no inverno com a mesma frequência',
+        'Não deixar água no pratinho',
+        'Não deixar ao alcance de crianças e pets: os espinhos machucam',
+      ],
+    ),
+    PlantSpecies(
+      id: 'orquidea',
+      name: 'Orquídea',
+      scientificName: 'Phalaenopsis',
+      emoji: '🌸',
+      description:
+          'Floresce por semanas e se adapta bem a apartamentos com luz clara.',
+      light: LightLevel.medium,
+      wateringIntervalDays: 7,
+      fertilizingIntervalDays: 30,
+      petFriendly: true,
+      aliases: ['phalaenopsis', 'orquidea'],
+      dos: [
+        'Regar mergulhando o vaso e deixando escorrer bem',
+        'Manter em luz clara, sem sol direto forte',
+        'Cortar a haste só quando secar por completo',
+      ],
+      donts: [
+        'Não deixar água acumulada na base das folhas',
+        'Não regar com o substrato ainda úmido',
+        'Não deixar em corrente de ar frio',
+      ],
+    ),
+    PlantSpecies(
+      id: 'manjericao',
+      name: 'Manjericão',
+      scientificName: 'Ocimum basilicum',
+      emoji: '🌿',
+      description: 'Tempero fresco em casa. Adora sol e solo úmido.',
+      light: LightLevel.high,
+      wateringIntervalDays: 2,
+      fertilizingIntervalDays: 21,
+      petFriendly: true,
+      aliases: ['basilico', 'manjericao'],
+      dos: [
+        'Dar pelo menos 4 a 6 horas de sol',
+        'Colher as pontas para estimular a ramificação',
+        'Manter o solo úmido, sem encharcar',
+      ],
+      donts: [
+        'Não deixar secar por muitos dias',
+        'Não deixar a planta florescer se quiser mais folhas',
+        'Não regar as folhas ao sol forte',
+      ],
+    ),
+    PlantSpecies(
+      id: 'hortela',
+      name: 'Hortelã',
+      scientificName: 'Mentha spp.',
+      emoji: '🍀',
+      description:
+          'Cresce rápido e perfuma o ambiente. Ótima para chás, mas invasiva no vaso.',
+      light: LightLevel.medium,
+      wateringIntervalDays: 2,
+      fertilizingIntervalDays: 21,
+      petFriendly: false,
+      aliases: ['menta', 'hortela'],
+      dos: [
+        'Manter o solo úmido',
+        'Podar com frequência para ela não tomar o vaso',
+        'Deixar em um vaso só dela',
+      ],
+      donts: [
+        'Não plantar junto com outras espécies no mesmo vaso',
+        'Não deixar secar totalmente',
+        'Evite deixar pets mastigando: pode causar desconforto',
+      ],
+    ),
+    PlantSpecies(
+      id: 'babosa',
+      name: 'Babosa',
+      scientificName: 'Aloe vera',
+      emoji: '🪴',
+      description:
+          'Suculenta medicinal que gosta de sol e de pouca água.',
+      light: LightLevel.high,
+      wateringIntervalDays: 14,
+      fertilizingIntervalDays: 60,
+      petFriendly: false,
+      aliases: ['aloe', 'aloe vera'],
+      dos: [
+        'Dar bastante luz, de preferência sol da manhã',
+        'Esperar o solo secar entre as regas',
+        'Usar vaso com drenagem',
+      ],
+      donts: [
+        'Não regar com frequência',
+        'Não deixar em local sem luz',
+        'Não deixar pets mastigarem: é tóxica',
+      ],
+    ),
+    PlantSpecies(
+      id: 'violeta-africana',
+      name: 'Violeta-africana',
+      scientificName: 'Saintpaulia ionantha',
+      emoji: '💜',
+      description:
+          'Pequena e florida o ano todo quando bem cuidada. Segura para pets.',
+      light: LightLevel.medium,
+      wateringIntervalDays: 4,
+      fertilizingIntervalDays: 30,
+      petFriendly: true,
+      aliases: ['violeta', 'saintpaulia'],
+      dos: [
+        'Regar pela base (no pratinho) e escorrer o excesso',
+        'Dar luz clara e indireta',
+        'Retirar flores e folhas secas',
+      ],
+      donts: [
+        'Não molhar as folhas (mancha e apodrece)',
+        'Não deixar em sol direto',
+        'Não usar água gelada',
+      ],
+    ),
+    PlantSpecies(
+      id: 'figueira-lira',
+      name: 'Figueira-lira',
+      scientificName: 'Ficus lyrata',
+      emoji: '🌳',
+      description:
+          'Folhas grandes em formato de lira. Bonita, mas sensível a mudanças.',
+      light: LightLevel.medium,
+      wateringIntervalDays: 7,
+      fertilizingIntervalDays: 30,
+      petFriendly: false,
+      aliases: ['ficus', 'ficus lyrata'],
+      dos: [
+        'Deixar em luz clara, perto de uma janela',
+        'Girar o vaso de tempos em tempos para crescer reta',
+        'Limpar as folhas com pano úmido',
+      ],
+      donts: [
+        'Não mudar de lugar toda hora (ela derruba folhas)',
+        'Não deixar o solo encharcado',
+        'Não deixar ao alcance de pets: é tóxica',
+      ],
+    ),
+  ];
+}
